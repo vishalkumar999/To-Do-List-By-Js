@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To do list &cross;</h1>
+    <input type="text" id="input">
+    <button id="btn">Add</button>
+
+
+    <ol id="mylist"></ol>
+
+
+
+
+
+    <script>
+        const creatElement = () => {
+            const myInput = document.getElementById('input').value;
+            const reg = /^[a-zA-Z]/;
+            if (!reg.test(myInput)) {
+                alert("Please Enter Valid Input")
+            } else {
+                let li = document.createElement('li');
+                let a = document.createElement('button');
+
+                a.innerHTML = 'Remove';
+                li.innerText = myInput + "\t\t";
+                li.setAttribute("onclick", "this.remove()")
+                li.appendChild(a);
+                let ul = document.getElementById('mylist');
+                ul.appendChild(li);
+            }
+        }
+
+
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', creatElement)
+    </script>
+</body>
+
+</html>
